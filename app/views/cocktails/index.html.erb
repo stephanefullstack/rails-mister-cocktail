@@ -1,0 +1,12 @@
+<script>
+      AOS.init();
+    </script>
+
+<div data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500">
+     <% @cocktails.each do |cocktail| %>
+        <p><%= link_to cocktail.name, cocktail_path(cocktail) %> </p>
+      <% end %>
+</div>
+
