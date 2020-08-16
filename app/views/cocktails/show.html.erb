@@ -2,9 +2,9 @@
 
 
 <ul class="list-group">
-  <% @cocktail.doses.each do |dose| %>
-  <%= cl_image_tag dose.photo.key,
+  <%= cl_image_tag @cocktail.photo.key,
       width: 400, height: 300, crop: :fill %>
+  <% @cocktail.doses.each do |dose| %>
     <li class="list-group-item">
       <%= dose.description %>: <%= dose.ingredient.name %> <%= link_to "delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>
     </li>
