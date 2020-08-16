@@ -1,15 +1,27 @@
-<%= @cocktail.name %>
 
 
-<ul class="list-group">
-  <%= cl_image_tag @cocktail.photo.key,
-      width: 400, height: 300, crop: :fill %>
-  <% @cocktail.doses.each do |dose| %>
-    <li class="list-group-item">
-      <%= dose.description %>: <%= dose.ingredient.name %> <%= link_to "delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>
-    </li>
-  <% end %>
-</ul>
 
-<%= link_to 'Back', cocktails_path %> |
-<%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail) %>
+<div class="mx-auto text-center" style="width: 100%">
+  <h1>
+    <%= @cocktail.name %>
+  </h1>
+
+<div class="d-flex justify-content-around" style="width: 100%; margin-top: 50px">
+  <ul class="list-group">
+    <%= cl_image_tag @cocktail.photo.key,
+        width: 400, height: 500, crop: :fill %>
+    <% @cocktail.doses.each do |dose| %>
+      <li class="list-group-item border-white">
+        <%= dose.description %>: <%= dose.ingredient.name %> <%= link_to "delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+  <button type="button" class="btn btn-outline-primary" data-toggle="button" aria-pressed="false" style="margin-top: 50px">
+    <%= link_to 'Back to homepage', cocktails_path %>
+  </button>
+  <button type="button" class="btn btn-outline-primary" data-toggle="button" aria-pressed="false" style="margin-top: 50px">
+    <%= link_to 'Add a dose of ingredient', new_cocktail_dose_path(@cocktail) %>
+  </button>
+</div>

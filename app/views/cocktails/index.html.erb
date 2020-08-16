@@ -5,25 +5,39 @@
 <div data-aos="fade-left"
      data-aos-easing="linear"
      data-aos-duration="1500">
-     <% @cocktails.each do |cocktail| %>
-        <p><%= link_to cocktail.name, cocktail_path(cocktail) %> </p>
-      <% end %>
+     <%# @cocktails.each do |cocktail| %>
+        <p><%#= link_to cocktail.name, cocktail_path(cocktail) %> </p>
+      <%# end %>
 </div> -->
-<%= link_to "Add a cocktail", new_cocktail_path  %>
 
-<!-- app/views/articles/index.html.erb -->
-<%= cl_image_tag("lsvoiq6t0hhalbh6ubfu",
-      width: 400, height: 300, crop: :fill) %>
-
-<!-- for face detection -->
-<%= cl_image_tag("odxndaq9tsf7l7bpocpv",
-      width: 150, height: 150, crop: :thumb, gravity: :face) %>
-
-
-<div>
-     <% @cocktails.each do |cocktail| %>
-      <%= cl_image_tag cocktail.photo.key,
+<!-- <div>
+     <%# @cocktails.each do |cocktail| %>
+      <%#= cl_image_tag cocktail.photo.key,
       width: 400, height: 300, crop: :fill %>
-        <p><%= link_to cocktail.name, cocktail_path(cocktail) %> </p>
-      <% end %>
+        <p><%#= link_to cocktail.name, cocktail_path(cocktail) %> </p>
+      <%# end %>
+</div> -->
+<div class="banner" style="background-image: linear-gradient(#ffffff,rgba(0,0,0,0.4)), url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.tUYCQbdWxOsCjMlJ25V13AHaDt%26pid%3DApi&f=1);">
+  <div class="container" style="padding: 10%">
+    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative baristas</strong>!</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+  </div>
 </div>
+
+<div style="margin: 1rem">
+  <button type="button" class="btn btn-outline-primary" data-toggle="button" aria-pressed="false">
+    <%= link_to "Add a cocktail", new_cocktail_path  %>
+  </button>
+</div>
+
+<div class="d-flex justify-content-around" style="flex-flow: row wrap;">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card" style=" width: 20rem; margin-bottom: 10px">
+      <%= cl_image_tag cocktail.photo.key, :height => 350, crop: :fill %>
+      <div class="card-body">
+        <p class="card-text"><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
